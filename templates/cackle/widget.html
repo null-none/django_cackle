@@ -1,0 +1,45 @@
+<div id="mc-container"></div>
+<script type="text/javascript">
+    var mcSite = '{{ cackle_site }}';
+    {% if cackle_channel %}
+        var mcChannel = '{{ cackle_channel }}';
+    {% endif %}
+    {% if cackle_no_style %}
+        var mcNoStyle = true;
+    {% endif %}
+    {% if cackle_locale %}
+        var mcLocale = '{{ cackle_locale }}';
+    {% endif %}
+    {% if cackle_providers %}
+        var mcProviders = '{{ cackle_providers|join:";" }}';
+    {% endif %}
+    {% if cackle_size %}
+        var mcSize = '{{ cackle_size }}';
+    {% endif %}
+    {% if cackle_avatar_size %}
+        var mcAvatarSize = '{{ cackle_avatar_size }}';
+    {% endif %}
+    {% if cackle_text_size %}
+        var mcTextSize = '{{ cackle_text_size }}';
+    {% endif %}
+    {% if cackle_jquery_off %}
+        var mcJqueryOff = true;
+    {% endif %}
+    {% if cackle_sso_auth %}
+        var mcSSOAuth = '{{ cackle_sso_auth }}';
+    {% endif %}
+</script>
+{% if not cackle_jquery_off %}
+    <script type="text/javascript">
+            (function() {
+                var mc = document.createElement('script');
+                mc.type = 'text/javascript';
+                mc.async = true;
+                mc.src = 'http://cackle.me/mc.widget-min.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(mc);
+            })();
+    </script>
+{% else %}
+    <script type="text/javascript" src="http://cackle.me/mc.widget-min.js"></script>
+{% endif %}
+{#<a href="http://cackle.me" id="mc-link">система комментирования <b style="color:#4FA3DA">CACKL</b><b style="color:#F65077">E</b></a>#}

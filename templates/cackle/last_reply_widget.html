@@ -1,0 +1,29 @@
+<div id="mc-last"></div>
+<script type="text/javascript">
+    var mcSite = '{{ cackle_site }}';
+    {% if cackle_size %}
+        var mcSize = '{{ cackle_size }}';
+    {% endif %}
+    {% if cackle_avatar_size %}
+        var mcAvatarSize = '{{ cackle_avatar_size }}';
+    {% endif %}
+    {% if cackle_text_size %}
+        var mcTextSize = '{{ cackle_text_size }}';
+    {% endif %}
+    {% if cackle_jquery_off %}
+        var mcJqueryOff = true;
+    {% endif %}
+</script>
+{% if not cackle_jquery_off %}
+    <script type="text/javascript">
+        (function() {
+            var mc = document.createElement('script');
+            mc.type = 'text/javascript';
+            mc.async = true;
+            mc.src = 'http://cackle.me/mc.last-min.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(mc);
+        })();
+    </script>
+{% else %}
+    <script type="text/javascript" src="http://cackle.me/mc.last-min.js"></script>
+{% endif %}
